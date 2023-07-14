@@ -6,8 +6,9 @@ import { useLocation, Link } from 'react-router-dom';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const DEFAULT_URL = 'https://www.freeiconspng.com/uploads/no-image-icon-6.png';
 
-export const SearchMoviesItem = ({ movies }) => {
+const SearchMoviesItem = ({ movies }) => {
   const location = useLocation();
+
   return (
     <div className={css.container}>
       <ul className={css.searchMoviesList}>
@@ -29,3 +30,5 @@ export const SearchMoviesItem = ({ movies }) => {
     </div>
   );
 };
+
+export default SearchMoviesItem;

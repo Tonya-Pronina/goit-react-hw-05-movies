@@ -3,7 +3,7 @@ import css from './Review.module.css';
 import React, { Suspense, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export const Review = () => {
+const Review = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
 
@@ -31,3 +31,5 @@ export const Review = () => {
     </Suspense>
   );
 };
+
+export default Review;

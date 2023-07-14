@@ -5,7 +5,7 @@ import { fetchCast } from 'API/api';
 
 const DEFAULT_URL = 'https://www.freeiconspng.com/uploads/no-image-icon-6.png';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState(null);
   const { movieId } = useParams();
 
@@ -19,22 +19,25 @@ export const Cast = () => {
     <Suspense>
       <div>
         <ul>
-          {cast.map(el => {
-            const imageUrl = el.profile_path
-              ? `https://image.tmdb.org/t/p/w200/${el.profile_path}`
-              : DEFAULT_URL;
-            return (
-              <li key={el.id}>
-                <img src={imageUrl} width="200" alt={el.name} />
-                <div className={css.text}>
-                  <p className={css.title}>{el.name}</p>
-                  <p>Character: {el.character}</p>
-                </div>
-              </li>
-            );
-          })}
+          {cast &&
+            cast.map(el => {
+              const imageUrl = el.profile_path
+                ? `https://image.tmdb.org/t/p/w200/${el.profile_path}`
+                : DEFAULT_URL;
+              return (
+                <li key={el.id}>
+                  <img src={imageUrl} width="200" alt={el.name} />
+                  <div className={css.text}>
+                    <p className={css.title}>{el.name}</p>
+                    <p>Character: {el.character}</p>
+                  </div>
+                </li>
+              );
+            })}
         </ul>
       </div>
     </Suspense>
   );
 };
+
+export default Cast;

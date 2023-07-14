@@ -1,7 +1,8 @@
+import React, { Suspense } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
 import css from './Common.module.css';
-import { NavLink } from 'react-router-dom';
 
-export const Common = () => {
+const Common = () => {
   return (
     <div>
       <header className={css.header}>
@@ -13,13 +14,18 @@ export const Common = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className={css.link} to="/movies">
+              <NavLink className={css.link} to="/SearchMovies">
                 Movies
               </NavLink>
             </li>
           </ul>
         </nav>
       </header>
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
+
+export default Common;

@@ -1,11 +1,11 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import css from './SearchMovies.module.css';
-import { SearchMoviesItem } from './SearchMovieItem';
+import SearchMoviesItem from './SearchMovieItem';
 import { searchMovies } from 'API/api';
 import { useSearchParams } from 'react-router-dom';
-import { LoadMore } from 'components/LoadMore/LoadMore';
+import LoadMore from 'components/LoadMore/LoadMore';
 
-export const SearchMovies = () => {
+const SearchMovies = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -69,3 +69,5 @@ export const SearchMovies = () => {
     </Suspense>
   );
 };
+
+export default SearchMovies;
